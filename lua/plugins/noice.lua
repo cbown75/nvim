@@ -5,7 +5,10 @@ return {
 
     },
     dependencies = {
-        "muniftanjim/nui.nvim",
+        "MunifTanjim/nui.nvim",
         "rcarriga/nvim-notify",
     },
+---    config = function()
+    vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", {})
+---    end,
 }

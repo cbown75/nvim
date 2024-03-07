@@ -22,5 +22,10 @@ return {
 		dap.listeners.before.event_exited.dapui_config = function()
 			dapui.close()
 		end
+
+		vim.keymap.set("n", "<Leader>dt", ":DapToggleBreakpoint<CR>")
+		vim.keymap.set("n", "<Leader>dc", ":DapContinue<CR>")
+		vim.keymap.set("n", "<Leader>dx", ":DapTerminate<CR>")
+		vim.keymap.set("n", "<Leader>do", ":DapStepOver<CR>")
 	end,
 }
