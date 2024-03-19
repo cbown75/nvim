@@ -27,7 +27,7 @@ return {
 					"rust_analyzer",
 					"dockerls",
 					"docker_compose_language_service",
-					"golangci_lint_ls",
+					--  				"golangci_lint_ls",
 					"gopls",
 					"helm_ls",
 					"html",
