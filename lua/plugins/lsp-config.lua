@@ -23,7 +23,7 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					"bashls",
+					--"bashls",
 					"rust_analyzer",
 					"dockerls",
 					"docker_compose_language_service",
