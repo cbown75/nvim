@@ -66,3 +66,6 @@ vim.opt.scrolloff = 10
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
+
+-- disable swapfiles because they are fucking garbage
+vim.o.swapfile = false
