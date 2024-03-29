@@ -15,6 +15,7 @@ vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 
+vim.opt.modifiable = true
 -- Make line numbers default
 vim.opt.number = true
 vim.opt.relativenumber = true
