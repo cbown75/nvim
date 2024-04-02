@@ -1,4 +1,7 @@
 return {
+	"MunifTanjim/nui.nvim",
+	lazy = false,
+}, {
 	"folke/noice.nvim",
 	event = "VeryLazy",
 
@@ -49,7 +52,10 @@ return {
 			end,
 		})
 
+		opts.smart_move.enabled = true
 		opts.presets.lsp_doc_border = true
+		opts.presets.command_palette = true
+		opts.presets.bottom_search = false
 	end,
 
 	dependencies = {
@@ -57,6 +63,6 @@ return {
 		"rcarriga/nvim-notify",
 	},
 	---    config = function()
-	vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", {}),
+	vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDitmiss<CR>", {}),
 	---    end,
 }
