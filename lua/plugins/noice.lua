@@ -1,55 +1,51 @@
 return {
 	"folke/noice.nvim",
-	opts = function(_, opts)
-		table.insert(opts.routes, {
-			filter = {
-				event = "notify",
-				find = "No information available",
-			},
-			opts = { skip = true },
-		})
-		local focused = true
-		vim.api.nvim_create_autocmd("FocusGained", {
-			callback = function()
-				focused = true
-			end,
-		})
-		vim.api.nvim_create_autocmd("FocusLost", {
-			callback = function()
-				focused = false
-			end,
-		})
-		table.insert(opts.routes, 1, {
-			filter = {
-				["not"] = {
-					event = "lsp",
-					kind = "progress",
+	lazy = false,
+	config = function()
+		require("noice").setup({
+			lsp = {
+				-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+				override = {
+					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+					["vim.lsp.util.stylize_markdown"] = true,
+					["cmp.entry.get_documentation"] = true,
 				},
-				cond = function()
-					return not focused
-				end,
 			},
-			view = "notify_send",
-			opts = { stop = false },
-		})
-
-		opts.commands = {
-			all = {
-				-- options for the message history that you get with `:Noice`
-				view = "split",
-				opts = { enter = true, format = "details" },
-				filter = {},
+			-- you can enable a preset for easier configuration
+			presets = {
+				bottom_search = false, -- use a classic bottom cmdline for search
+				command_palette = false, -- position the cmdline and popupmenu together
+				long_message_to_split = true, -- long messages will be sent to a split
+				inc_rename = false, -- enables an input dialog for inc-rename.nvim
+				lsp_doc_border = false, -- add a border to hover docs and signature help
 			},
-		}
-		-- opts.status = { lsp_progress = { event = "lsp", kind = "progress" } }
-
-		vim.api.nvim_create_autocmd("FileType", {
-			pattern = "markdown",
-			callback = function(event)
-				vim.schedule(function()
-					require("noice.text.markdown").keys(event.buf)
-				end)
-			end,
+			routes = {
+				{
+					view = "notify",
+					filter = { event = "msg_showmode" },
+				},
+			},
+			cmdline = {
+				view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
+				format = {
+					cmdline = { pattern = "^:", icon = "|>", lang = "vim", title = "" },
+				},
+			},
+			views = {
+				cmdline_popup = {
+					size = {
+						height = "auto",
+						width = "90%",
+					},
+					position = {
+						row = "90%",
+						col = "50%",
+					},
+					border = {
+						style = "single",
+					},
+				},
+			},
 		})
 	end,
 }
