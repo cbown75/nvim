@@ -30,9 +30,6 @@ return {
 			},
 			cmdline = {
 				view = "cmdline_popup",
-				--format = {
-				--	cmdline = { pattern = "^:", icon = "|>", lang = "vim", title = "" },
-				--},
 			},
 			views = {
 				cmdline_popup = {
