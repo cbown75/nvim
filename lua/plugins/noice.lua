@@ -1,10 +1,5 @@
 return {
-	"MunifTanjim/nui.nvim",
-	lazy = false,
-}, {
 	"folke/noice.nvim",
-	event = "VeryLazy",
-
 	opts = function(_, opts)
 		table.insert(opts.routes, {
 			filter = {
@@ -26,6 +21,10 @@ return {
 		})
 		table.insert(opts.routes, 1, {
 			filter = {
+				["not"] = {
+					event = "lsp",
+					kind = "progress",
+				},
 				cond = function()
 					return not focused
 				end,
@@ -42,6 +41,7 @@ return {
 				filter = {},
 			},
 		}
+		-- opts.status = { lsp_progress = { event = "lsp", kind = "progress" } }
 
 		vim.api.nvim_create_autocmd("FileType", {
 			pattern = "markdown",
@@ -51,18 +51,5 @@ return {
 				end)
 			end,
 		})
-
-		--opts.smart_move.enabled = true
-		opts.presets.lsp_doc_border = true
-		opts.presets.command_palette = true
-		opts.presets.bottom_search = false
 	end,
-
-	dependencies = {
-		"MunifTanjim/nui.nvim",
-		"rcarriga/nvim-notify",
-	},
-	---    config = function()
-	vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDitmiss<CR>", {}),
-	---    end,
 }
