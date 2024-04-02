@@ -32,8 +32,11 @@ require("lazy").setup({
 		lazy = false,
 	},
 	install = { colorscheme = { "catppuccin", "catppuccin-mocha" } },
-	checker = { enabled = true }, -- automatically check for plugin updates
+	checker = { enabled = true },
 	performance = {
+		cache = {
+			enabled = true,
+		},
 		rtp = {
 			-- disable some rtp plugins
 			disabled_plugins = {
@@ -41,6 +44,7 @@ require("lazy").setup({
 				-- "matchit",
 				-- "matchparen",
 				-- "netrwPlugin",
+				"rplugin",
 				"tarPlugin",
 				"tohtml",
 				"tutor",
