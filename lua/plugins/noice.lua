@@ -26,7 +26,7 @@ return {
 				},
 			},
 			cmdline = {
-				view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
+				view = "cmdline_popup",
 				format = {
 					cmdline = { pattern = "^:", icon = "|>", lang = "vim", title = "" },
 				},
@@ -35,10 +35,10 @@ return {
 				cmdline_popup = {
 					size = {
 						height = "auto",
-						width = "90%",
+						width = "60%",
 					},
 					position = {
-						row = "90%",
+						row = "50%",
 						col = "50%",
 					},
 					border = {
