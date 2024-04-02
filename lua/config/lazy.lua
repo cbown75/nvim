@@ -18,14 +18,7 @@ require("lazy").setup({
 				},
 			},
 		},
-		-- import any extras modules here
-		-- { import = "lazyvim.plugins.extras.ui.alpha" },
-		-- { import = "lazyvim.plugins.extras.lsp.none-ls" },
-		-- import copilot
-		-- { import = "lazyvim.plugins.extras.coding.copilot" },
-		-- golang programming
-		-- { import = "lazyvim.plugins.extras.lang.go" },
-		-- import/override with your plugins
+		{ import = "lazyvim.plugins.extras.lsp.none-ls" },
 		{ import = "plugins" },
 	},
 	defaults = {
